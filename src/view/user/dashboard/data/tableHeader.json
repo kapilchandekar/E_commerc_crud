@@ -1,0 +1,23 @@
+[
+  {
+    "_id": "name",
+    "label": "Name"
+  },
+  {
+    "_id": "company",
+    "label": "Company"
+  },
+
+  {
+    "_id": "category",
+    "label": "Category"
+  },
+  {
+    "_id": "price",
+    "label": "Price"
+  },
+  {
+    "_id": "action",
+    "label": "Action"
+  }
+]
