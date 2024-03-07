@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/rules-of-hooks */
 import React, { useState } from "react";
 import {
   Box,
@@ -159,11 +158,11 @@ const addProduct = () => {
         </Button>
       </Box>
       <CustomToaster
-      open={toasterOpen}
-      onClose={handleToasterClose}
-      severity={toasterSeverity}
-      message={toasterMessage}
-    />
+        open={toasterOpen}
+        onClose={handleToasterClose}
+        severity={toasterSeverity}
+        message={toasterMessage}
+      />
     </Stack>
   );
 };
