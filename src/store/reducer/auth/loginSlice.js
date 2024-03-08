@@ -15,7 +15,7 @@ const loginSlice = createSlice({
     userlogInSuccess: (state) => {
       state.isLoading = false;
       state.isAuth = true;
-      localStorage.setItem("authToken", Math.random());
+      
     },
     userlogInFailed: (state) => {
       state.isLoading = false;

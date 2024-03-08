@@ -35,7 +35,7 @@ export const userRoutes = [
 
   {
     redirectRoute: true,
-    name: "Dashboard",
-    path: "/",
+    name: 'Dashboard',
+    path: '/',
   },
 ];
