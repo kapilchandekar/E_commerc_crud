@@ -16,7 +16,7 @@ import { NavLink } from "react-router-dom";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 
 const pages = [
-  { name: "Dashboard", path: "/dashboard" },
+  { name: "Dashboard", path: "/" },
   { name: "Add Product", path: "/add-product" },
 ];
 const settings = ["Profile", "Logout"];
