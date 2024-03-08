@@ -10,9 +10,11 @@ import {
 } from "../../components/custom/CustumInputs";
 import CustomToaster from "../../lib/toaster";
 import { signInValidation } from "./validation/Validation";
+import { useNavigate } from "react-router-dom";
 
 const LogIn = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate()
   // // initial state
   const [toasterOpen, setToasterOpen] = useState(false);
   const [toasterSeverity, setToasterSeverity] = useState("success");
@@ -49,6 +51,8 @@ const LogIn = () => {
             password: values?.password,
           },
           triggerToaster,
+          navigate
+
         })
       );
     },
