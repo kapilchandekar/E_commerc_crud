@@ -24,8 +24,6 @@ const addProduct = () => {
   const { addProductLoading } = useSelector((state) => state?.user?.product);
   // const navigate = useNavigate();
 
-  console.log("??", addProductLoading);
-
   const handleToasterClose = (event, reason) => {
     if (reason === "clickaway") {
       return;
@@ -138,20 +136,15 @@ const addProduct = () => {
         }
       />
 
-      <Box textAlign="center">
+      <Box textAlign="center" mt="20px !important">
         <Button
           variant="contained"
           type="submit"
-          sx={{
-            textTransform: "capitalize",
-            fontSize: "12px",
-            lineHeight: "normal",
-            // py: "0px",
-          }}
+          sx={{ width: "80px", textTransform: "capitalize" }}
           // onClick={() => navigate(`/sign-in`)}
         >
           {addProductLoading ? (
-            <CircularProgress size="14px" color="inherit" />
+            <CircularProgress size="24px" color="inherit" />
           ) : (
             "Add"
           )}

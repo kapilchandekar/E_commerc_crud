@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box, Button, Skeleton, Stack } from "@mui/material";
+import { Box, Button, CircularProgress, Skeleton, Stack } from "@mui/material";
 import { useFormik } from "formik";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -12,9 +12,8 @@ const UpdateProductModal = ({ open, handleClickClose, callBack }) => {
   const [toasterOpen, setToasterOpen] = useState(false);
   const [toasterSeverity, setToasterSeverity] = useState("success");
   const [toasterMessage, setToasterMessage] = useState("");
-  const { productDetail, productDetailLoading } = useSelector(
-    (state) => state?.user?.product
-  );
+  const { productDetail, productDetailLoading, updateProductLoading } =
+    useSelector((state) => state?.user?.product);
   const dispatch = useDispatch();
 
   const handleToasterClose = (event, reason) => {
@@ -161,8 +160,13 @@ const UpdateProductModal = ({ open, handleClickClose, callBack }) => {
               variant="contained"
               type="submit"
               // onClick={() => navigate(`/sign-in`)}
+              sx={{ width: "80px", textTransform: "capitalize" }}
             >
-              save
+              {updateProductLoading ? (
+                <CircularProgress size="24px" color="inherit" />
+              ) : (
+                "save"
+              )}
             </Button>
           </Box>
           <CustomToaster

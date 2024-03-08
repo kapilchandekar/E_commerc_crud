@@ -26,7 +26,7 @@ const Dashboard = () => {
   const [toasterOpen, setToasterOpen] = useState(false);
   const [toasterSeverity, setToasterSeverity] = useState("success");
   const [toasterMessage, setToasterMessage] = useState("");
-  const { productList, getProductListLoading } = useSelector(
+  const { productList, getProductListLoading, deleteProductLoading } = useSelector(
     (state) => state?.user?.product
   );
   const dispatch = useDispatch();
@@ -138,6 +138,7 @@ const Dashboard = () => {
         open={deleteModal?.open}
         handleClose={handleClose}
         handleClick={handleDeleteProduct}
+        isLoading={deleteProductLoading}
       />
       <CustomToaster
         open={toasterOpen}

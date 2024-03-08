@@ -16,10 +16,10 @@ import { NavLink } from "react-router-dom";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 
 const pages = [
-  { name: "Dashboard", path: "/" },
+  { name: "Dashboard", path: "/dashboard" },
   { name: "Add Product", path: "/add-product" },
 ];
-const settings = ["Profile", "Logout"];
+const settings = ["Logout"];
 
 const Navbar = (props) => {
   const { isAuthenticated } = props;
@@ -62,7 +62,7 @@ const Navbar = (props) => {
             variant="h6"
             noWrap
             component="a"
-            href="#app-bar-with-responsive-menu"
+            href="/dashboard"
             sx={{
               mr: 2,
               display: { xs: "none", md: "flex" },
@@ -76,17 +76,19 @@ const Navbar = (props) => {
             E-com
           </Typography>
 
-          <Box sx={{ flexGrow: 1, display: "none" }}>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-            >
-              <MenuIcon />
-            </IconButton>
+          <Box sx={{ flexGrow: 1, display: { xs: "block", md: "none" } }}>
+            {isAuthenticated && (
+              <IconButton
+                size="large"
+                aria-label="account of current user"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                onClick={handleOpenNavMenu}
+                color="inherit"
+              >
+                <MenuIcon />
+              </IconButton>
+            )}
             <Menu
               id="menu-appbar"
               anchorEl={anchorElNav}
@@ -112,7 +114,7 @@ const Navbar = (props) => {
                     <MenuItem key={page?.name} onClick={handleCloseNavMenu}>
                       <NavLink
                         to={page.path}
-                        style={{ textDecoration: "none" }}
+                        style={{ textDecoration: "none", color: "black" }}
                       >
                         {page.name}{" "}
                       </NavLink>
@@ -134,7 +136,7 @@ const Navbar = (props) => {
             variant="h5"
             noWrap
             component="a"
-            href="#app-bar-with-responsive-menu"
+            href="/dashboard"
             sx={{
               mr: 2,
               display: { xs: "flex", md: "none" },

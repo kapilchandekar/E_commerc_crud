@@ -1,7 +1,13 @@
 import React, { useState } from "react";
-import { Box, Button, Stack, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  CircularProgress,
+  Stack,
+  Typography,
+} from "@mui/material";
 import { useFormik } from "formik";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import {
   CustomInputPsw,
@@ -16,6 +22,7 @@ const SignUp = () => {
   const [toasterOpen, setToasterOpen] = useState(false);
   const [toasterSeverity, setToasterSeverity] = useState("success");
   const [toasterMessage, setToasterMessage] = useState("");
+  const { isLoading } = useSelector((state) => state.auth.signup);
   const handleToasterClose = (event, reason) => {
     if (reason === "clickaway") {
       return;
@@ -116,12 +123,12 @@ const SignUp = () => {
           }
         />
         <Box textAlign="center">
-          <Button
-            variant="contained"
-            type="submit"
-            // onClick={() => navigate(`/sign-in`)}
-          >
-            sign up
+          <Button variant="contained" type="submit" sx={{ width: "90px", textTransform:"capitalize" }}>
+            {isLoading ? (
+              <CircularProgress size="24px" color="inherit" />
+            ) : (
+              "sign up"
+            )}
           </Button>
         </Box>
         <CustomToaster

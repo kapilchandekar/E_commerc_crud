@@ -25,7 +25,7 @@ export function* userlogInSaga(action) {
       yield put(userlogInSuccess(response));
       localStorage.setItem("authToken", response?.authToken);
       window.location.reload();
-      navigate("/");
+      navigate("/dashboard");
      
     },
     failHandler: yield function* (response) {

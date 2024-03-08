@@ -5,13 +5,20 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import Slide from "@mui/material/Slide";
-import { Button } from "@mui/material";
+import { Button, CircularProgress } from "@mui/material";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-const AlertModal = ({ open, handleClose, handleClick, title, subTitle }) => {
+const AlertModal = ({
+  open,
+  handleClose,
+  handleClick,
+  title,
+  subTitle,
+  isLoading,
+}) => {
   return (
     <>
       <Dialog
@@ -29,7 +36,11 @@ const AlertModal = ({ open, handleClose, handleClick, title, subTitle }) => {
         </DialogContent>
         <DialogActions>
           <Button variant="contained" onClick={handleClick}>
-            Yes
+            {isLoading ? (
+              <CircularProgress size="24px" color="inherit" />
+            ) : (
+              "Yes"
+            )}
           </Button>
           <Button variant="contained" onClick={handleClose}>
             No

@@ -21,7 +21,7 @@ export const guestRoutes = [
 ];
 export const userRoutes = [
   {
-    path: "/",
+    path: "/dashboard",
     name: "Dashboard",
     exact: true,
     component: lazy(() => import("../../view/user/dashboard/Dashboard")),
@@ -36,6 +36,6 @@ export const userRoutes = [
   {
     redirectRoute: true,
     name: 'Dashboard',
-    path: '/',
+    path: '/dashboard',
   },
 ];

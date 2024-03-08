@@ -1,7 +1,13 @@
 import React, { useState } from "react";
-import { Box, Button, Stack, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  CircularProgress,
+  Stack,
+  Typography,
+} from "@mui/material";
 import { useFormik } from "formik";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { userlogInAction } from "../../store/sagaActions";
 import {
@@ -13,9 +19,10 @@ import { signInValidation } from "./validation/Validation";
 import { useNavigate } from "react-router-dom";
 
 const LogIn = () => {
-  const dispatch = useDispatch();
-  const navigate = useNavigate()
   // // initial state
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { isLoading } = useSelector((state) => state?.auth?.login);
   const [toasterOpen, setToasterOpen] = useState(false);
   const [toasterSeverity, setToasterSeverity] = useState("success");
   const [toasterMessage, setToasterMessage] = useState("");
@@ -51,8 +58,7 @@ const LogIn = () => {
             password: values?.password,
           },
           triggerToaster,
-          navigate
-
+          navigate,
         })
       );
     },
@@ -107,9 +113,13 @@ const LogIn = () => {
           <Button
             variant="contained"
             type="submit"
-            // onClick={() => navigate(`/sign-in`)}
+            sx={{ width: "80px", textTransform: "capitalize" }}
           >
-            Log In
+            {isLoading ? (
+              <CircularProgress size="24px" color="inherit" />
+            ) : (
+              "Log In"
+            )}
           </Button>
         </Box>
         <CustomToaster
