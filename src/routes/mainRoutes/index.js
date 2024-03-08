@@ -2,7 +2,7 @@ import { lazy } from "react";
 
 export const guestRoutes = [
   {
-    path: "/sign-up",
+    path: "/",
     name: "signUp",
     exact: true,
     component: lazy(() => import("../../view/auth/SignUp")),
@@ -16,13 +16,13 @@ export const guestRoutes = [
   {
     redirectRoute: true,
     name: 'SignUp',
-    path: '/sign-up'
+    path: '/'
   }
 ];
 export const userRoutes = [
   {
-    path: "/dashboard",
-    name: "dashboard",
+    path: "/",
+    name: "Dashboard",
     exact: true,
     component: lazy(() => import("../../view/user/dashboard/Dashboard")),
   },
@@ -35,7 +35,7 @@ export const userRoutes = [
 
   {
     redirectRoute: true,
-    name: "/dashboard",
-    path: "dashboard",
+    name: "Dashboard",
+    path: "/",
   },
 ];
